@@ -2,7 +2,7 @@ using MediaPlayer.Core.Interfaces;
 
 namespace MediaPlayer.Core;
 
-public class AudioFile : IAudio
+public class AudioFile : IAudioFile
 {
     public string Title { get; set; }
     public string Artist { get; set; }

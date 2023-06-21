@@ -2,7 +2,7 @@ using MediaPlayer.Core.Interfaces;
 
 namespace MediaPlayer.Core;
 
-public class VideoFile : IVideo
+public class VideoFile : IVideoFile
 {
     public string Title { get; set; }
     public string Director { get; set; }
