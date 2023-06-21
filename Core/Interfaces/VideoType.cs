@@ -1,4 +1,4 @@
-namespace MediaPlayer.Entity.Interfaces;
+namespace MediaPlayer.Core.Interfaces;
 
 public enum VideoType
 {
