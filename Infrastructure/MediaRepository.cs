@@ -12,7 +12,7 @@ public class MediaRepository : IRepository
     {
     }
 
-    public static MediaRepository instance => _lazy.Value;
+    public static MediaRepository Instance => _lazy.Value;
 
     public List<IPlayable> GetAllItems()
     {
@@ -27,13 +27,13 @@ public class MediaRepository : IRepository
 
     public bool RemoveItem(string id)
     {
-        var item = _repository.Find(item => item.id == id);
+        var item = _repository.Find(item => item.Id == id);
         return _repository.Remove(item);
     }
 
     public IPlayable GetItemById(string id)
     {
-        var item = _repository.Find(item => item.id == id);
+        var item = _repository.Find(item => item.Id == id);
         if (item != null)
         {
             return item;
@@ -44,21 +44,21 @@ public class MediaRepository : IRepository
 
     public IPlayable UpdateItem(IPlayable update, string id)
     {
-        var Item = GetItemById(id);
-        var UpdateProps = update.GetType().GetProperties();
-        var OldProps = Item.GetType().GetProperties();
+        var item = GetItemById(id);
+        var updateProps = update.GetType().GetProperties();
+        var oldProps = item.GetType().GetProperties();
 
-        foreach(var Property in OldProps)
+        foreach(var property in oldProps)
         {
-            if(update.GetType().GetProperty(Property.Name) is not null)
+            if(update.GetType().GetProperty(property.Name) is not null)
             {
-                if(Property.CanWrite)
+                if(property.CanWrite)
                 {
-                    Property.SetValue(Item, update.GetType().GetProperty(Property.Name)!.GetValue(update));
+                    property.SetValue(item, update.GetType().GetProperty(property.Name)!.GetValue(update));
                 }
             }
         }
 
-        return Item;
+        return item;
     }
 }

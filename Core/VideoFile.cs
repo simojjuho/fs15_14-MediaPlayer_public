@@ -5,10 +5,11 @@ namespace MediaPlayer.Core;
 public class VideoFile : IVideoFile
 {
     private string _type;
-    public string title { get; set; }
-    public string director { get; set; }
+    public string Id { get; }
+    public string Title { get; set; }
+    public string Director { get; set; }
 
-    public string type
+    public string Type
     {
         get => _type;
         set
@@ -26,31 +27,33 @@ public class VideoFile : IVideoFile
         }
     }
 
-    public int lengthInSeconds { get; set; }
-    public int playAt { get; set; }
+    public int LengthInSeconds { get; set; }
+    public int PlayAt { get; set; }
 
     public VideoFile(string title, string director, string videoType, string length)
     {
-        this.title = title;
-        this.director = director;
-        type = videoType;
+        Title = title;
+        Director = director;
+        Type = videoType;
+        var rand = new Random();
+        Id = new Random().Next().ToString();
     }
     
     public bool Update(string? title, string? director, string? type)
     {
         if (title != null)
         {
-            this.title = title;
+            this.Title = title;
         }
 
         if (director != null)
         {
-            this.director = director;
+            this.Director = director;
         }
 
         if (type != null)
         {
-            this.type = type;
+            this.Type = type;
         }
 
         return true;

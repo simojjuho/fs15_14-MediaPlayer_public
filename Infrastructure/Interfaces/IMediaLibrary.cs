@@ -2,7 +2,7 @@ namespace MediaPlayer.Core.Interfaces;
 
 public interface IMediaLibrary
 {
-    public List<IPlayable> mediaRepository { get; set; }
+    public List<IPlayable> MediaRepository { get; set; }
 
     public bool AddToRepository();
 

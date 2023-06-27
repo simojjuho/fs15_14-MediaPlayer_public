@@ -9,5 +9,5 @@ public interface IRepository
 
     IPlayable GetItemById(string id);
 
-    IPlayable UpdateItem(IPlayable item);
+    IPlayable UpdateItem(IPlayable item, string id);
 }

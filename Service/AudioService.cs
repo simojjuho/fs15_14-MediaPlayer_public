@@ -7,25 +7,25 @@ namespace MediaPlayer.Service;
 
 public class AudioService : IAudioService
 {
-    public MediaRepository audioRepository { get; private set; }
+    public MediaRepository AudioRepository { get; private set; }
 
     public AudioService(MediaRepository audioRepo)
     {
-        audioRepository = audioRepo;
+        AudioRepository = audioRepo;
     }
     
     public bool AddItem(IPlayable item)
     {
-        return audioRepository.AddItem(item);
+        return AudioRepository.AddItem(item);
     }
 
     public bool RemoveItem(IPlayable item)
     {
-        return audioRepository.RemoveItem(item.id);
+        return AudioRepository.RemoveItem(item.Id);
     }
 
-    public IPlayable UpdateItem(IPlayable item)
+    public IPlayable UpdateItem(IPlayable item, string id)
     {
-        audioRepository.
+        return AudioRepository.UpdateItem(item, id);
     }
 }

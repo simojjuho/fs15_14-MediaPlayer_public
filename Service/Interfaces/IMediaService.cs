@@ -8,5 +8,6 @@ public interface IMediaService
 
     bool RemoveItem(IPlayable item);
 
-    IPlayable UpdateItem(IPlayable item);
+    IPlayable UpdateItem(IPlayable item, string id);
+    
 }
