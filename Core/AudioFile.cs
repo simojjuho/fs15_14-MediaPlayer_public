@@ -9,15 +9,29 @@ public class AudioFile : IAudioFile
     public string Title { get; set; }
     public string Artist { get; set; }
     public string Album { get; set; }
-    public int LengthInSeconds { get; set; }
-    public int PlayAt { get; set; }
+    public bool IsPlaying { get; private set; }
+    public TimeSpan Length { get; }
+    
+    public void Play()
+    {
+        if (!IsPlaying)
+        {
+            IsPlaying = true;
+            Console.WriteLine($"Playing {Title} by {Artist}");
+        }    }
 
-    public AudioFile(string title, string artist, string album)
+    public void Stop()
+    {
+        throw new NotImplementedException();
+    }
+
+    public AudioFile(string title, string artist, string album, TimeSpan length)
     {
         Title = title;
         Artist = artist;
         Album = album;
         var rand = new Random();
         Id = new Random().Next().ToString();
+        Length = length;
     }
 }

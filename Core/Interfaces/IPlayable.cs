@@ -4,6 +4,10 @@ public interface IPlayable
 {
     string Id { get; }
     string Title { get; set; }
-    int LengthInSeconds { get; set; }
-    int PlayAt { get; set; }
+    bool IsPlaying { get; }
+    TimeSpan Length { get; }
+
+    void Play();
+
+    void Stop();
 }

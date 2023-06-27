@@ -4,10 +4,30 @@ namespace MediaPlayer.Core;
 
 public class VideoFile : IVideoFile
 {
-    private string _type;
+    private string _type = String.Empty;
     public string Id { get; }
     public string Title { get; set; }
     public string Director { get; set; }
+    public bool IsPlaying { get; private set; } = false;
+    public TimeSpan Length { get; }
+
+    public void Play()
+    {
+        if (!IsPlaying)
+        {
+            IsPlaying = true;
+            Console.WriteLine($"Playing {Title} by director {Director}");
+        }
+    }
+
+    public void Stop()
+    {
+        if (IsPlaying)
+        {
+            IsPlaying = false;
+            Console.WriteLine("Playing stopped");   
+        }
+    }
 
     public string Type
     {
@@ -26,37 +46,14 @@ public class VideoFile : IVideoFile
             }
         }
     }
-
-    public int LengthInSeconds { get; set; }
-    public int PlayAt { get; set; }
-
-    public VideoFile(string title, string director, string videoType, string length)
+    
+    public VideoFile(string title, string director, string videoType, TimeSpan length)
     {
         Title = title;
         Director = director;
         Type = videoType;
         var rand = new Random();
         Id = new Random().Next().ToString();
-    }
-    
-    public bool Update(string? title, string? director, string? type)
-    {
-        if (title != null)
-        {
-            this.Title = title;
-        }
-
-        if (director != null)
-        {
-            this.Director = director;
-        }
-
-        if (type != null)
-        {
-            this.Type = type;
-        }
-
-        return true;
-        
+        Length = length;
     }
 }
