@@ -4,7 +4,7 @@ namespace MediaPlayer.Service;
 
 public class AudioLibrary : IMediaLibrary
 {
-    public List<IPlayable> MediaRepository { get; set; }
+    public List<IPlayable> mediaRepository { get; set; }
 
     public bool AddToRepository()
     {

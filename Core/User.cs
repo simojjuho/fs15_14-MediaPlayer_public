@@ -1,6 +1,6 @@
 using MediaPlayer.Core.Interfaces;
 
-namespace MediaPlayer.Service;
+namespace MediaPlayer.Core;
 
 public class User : IUser
 {
